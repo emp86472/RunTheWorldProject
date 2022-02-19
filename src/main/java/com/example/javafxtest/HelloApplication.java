@@ -33,6 +33,9 @@ public class HelloApplication extends Application {
         VBox root = new VBox();
 
         Label prompt = game.getPrompt();
+        //something to work on!
+        //image should change with the changing environment
+        //we need some artists..
         Image image = new Image("file:src/main/resources/pngs/city_scape.png");
         ImageView imageHolder = new ImageView(image);
         //imageHolder.setFitWidth(500);
@@ -40,10 +43,13 @@ public class HelloApplication extends Application {
         VBox imageBox = new VBox(imageHolder, prompt);
         imageBox.setAlignment(Pos.CENTER);
 
+        //something to work on! (i can probably do this)
+        //buttons not centered..
         HBox decision = new HBox();
         Button yes = new Button("Yes");
         Button no = new Button("No");
 
+        //env eco soc bars need to be added
         EventHandler<ActionEvent> ae1 = T -> {
            game.run(true);
         };

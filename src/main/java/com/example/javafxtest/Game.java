@@ -4,8 +4,17 @@ import javafx.scene.control.Label;
 
 import java.util.Random;
 
+/**
+ * Other things to work on:
+ * Key event cards that modify. Maybe we can have 2 separate
+ * arrays, a key event card array and a generic event card array
+ *
+ * MAYBE we could have sound fx, doesnt look too hard..
+ *
+ */
 public class Game {
     private int env, eco, soc, po;
+    //po for public opinion
     private static int decisionCount;
     private Card[] deck;
     private Label prompt = new Label();
@@ -21,6 +30,8 @@ public class Game {
         this.po = 50;
     } //Game constructor
 
+    //something to work on!
+    //currently PO does not affect the game
     //main game loop
     public void run(boolean decision) {
         Card card = this.deck[r.nextInt(deck.length)];
@@ -39,8 +50,10 @@ public class Game {
                 this.po -= 10;
             } //if
             decisionCount++;
+            //we need different messages for each lose condition
+            //whichever happens first
         } else {
-            System.exit(0);
+            this.prompt.setText("Game Over!");
         } //if
     } //run
 
@@ -72,8 +85,13 @@ public class Game {
         return this.prompt;
     } //getPrompt
 
-    //maybe try using a seed file
+    //maybe try using a seed file to initialize all the cards
+    //need scanner class
     public void setDeck() {
+        //something to work on!
+        //someone needs to create the seed file with all the cards
+        //seed file should be in some parsable format
+        //someone else can play ar with scanners to initialize all the cards using a forloop
         Card card1 = new Card(10, 10, 10);
         card1.setPrompt("example prompt 1");
         Card card2 = new Card(-10,-10,-10);
