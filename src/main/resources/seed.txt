@@ -1,43 +1,44 @@
 There is a movement to increase minimum wage, should we support it?
-0 -15 10
+0 -10 5
 There is a movement to increase regulations on the use of coal, should we support it?
-15 -20 15
+10 -10 5
 There is a movement to increase regulation on the logging industry, should we support it?
-15 -15 10
+10 -10 5
 A neighboring country is being attacked, should we send assistance?
-0 -10 15
+0 -10 5
 The world is moving towards universal use of electric cars, should we follow?
-15 -20 5
+10 -10 5
 There is a movement to stop tourism to a certain lake inside the country due to pollution, should we support it?
-10 -15 -15
+10 -10 -15
 A foreign nation asks for funds to assist in environmental research, do we give them a grant?
-15 -15 0
+10 -10 0
 A neighboring nation asks for financial assistance, do we provide aid?
-0 -10 15
+0 -10 5
 Many citizens are asking for the development highway infrastructure, should we?
--20 -10 15
+-10 10 5
 There is a recent movement demanding the lowering of taxes, should we lower them?
-0 -15 15
+0 -10 10
 Citizens are asking for forests to be cleared for more room for housing, should we?
--15 5 5
+-15 15 5
 A new medicine is made at the cost of harvesting recently discovered corals, should we regulate it?
-10 -10 -10
+10 -10 -15
 A man has fallen into the river in lego city, should we save him?
 0 0 5
 College students are asking for student loan forgiveness, should we?
-0 -10 15
+0 -10 5
 Should we create fishing quotas to limit fishing to protect endangered species?
-15 -15 0
+10 -5 0
 A company wants to clear a forest for lumber, do we clear it?
--10 15 -5
+-10 15 -15
 An endangered animal is at risk of going extinct, do we protect them?
-10 -10 10
+10 -5 5
 Companies want to implement nuclear power, should new nuclear plants be built?
--5 20 -10
+-5 15 -15
 Companies want to implement solar power by clearing out a grass plain, should new solar power plants be built?
--5 15 10
+-10 15 5
 Companies want to implement hydro power at a river should new the hydro power plants be built?
--5 10 0
+-10 15 5
 Oil was recently discovered near a forest, should we extract the oil?
 -15 15 0
+
 #

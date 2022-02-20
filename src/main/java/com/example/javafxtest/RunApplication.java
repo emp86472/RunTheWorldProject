@@ -27,7 +27,7 @@ public class RunApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 600, 480);
 
         stage.setResizable(false);
-        stage.setTitle("UGA-Hacks7");
+        stage.setTitle("Run The World!");
         stage.setScene(scene);
         stage.show();
     }

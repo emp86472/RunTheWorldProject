@@ -28,6 +28,16 @@ public class ButtonController implements Initializable {
 
     @FXML
     protected void onYesButtonClick(ActionEvent actionEvent) {
+        if (game.getLoss()) {
+            game.setEco(50);
+            game.setEnv(50);
+            game.setSoc(50);
+            Card card = game.getCard();
+            card.setEco(0);
+            card.setEnv(0);
+            card.setSoc(0);
+            game.setLoss(false);
+        } //if
         game.run(true);
         this.prompt.setText(game.getPrompt().getText());
         eco.setProgress((double)game.getEco()/100);
@@ -38,6 +48,9 @@ public class ButtonController implements Initializable {
 
     @FXML
     protected void onNoButtonClick(ActionEvent actionEvent) {
+        if (game.getLoss()) {
+            System.exit(0);
+        } //if
         game.run(false);
         this.prompt.setText(game.getPrompt().getText());
         eco.setProgress((double)game.getEco()/100);
@@ -60,6 +73,7 @@ public class ButtonController implements Initializable {
                 BackgroundSize.DEFAULT)));
         this.game = new Game();
         this.prompt.setText(game.getPrompt().getText());
+        this.prompt.setWrapText(true);
         eco.setProgress((double)game.getEco()/100);
         env.setProgress((double)game.getEnv()/100);
         soc.setProgress((double)game.getSoc()/100);

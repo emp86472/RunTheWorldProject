@@ -22,6 +22,7 @@ public class Game {
     private Card[] deck;
     private Label prompt = new Label();
     private Card card;
+    boolean isLoss = false;
     Random r = new Random();
 
     public Game() {
@@ -41,7 +42,7 @@ public class Game {
         int eco = this.card.getEco();
         int soc = this.card.getSoc();
         if (decision) {
-            this.env += env - 5;
+            this.env += env;
             this.eco += eco;
             this.soc += soc;
             //this.po += 10;
@@ -59,12 +60,13 @@ public class Game {
         //this.po = min(this.po, 0);
 
         this.card = this.deck[r.nextInt(deck.length)];
-        if (this.env >= 0 && this.eco >= 0 && this.soc >= 0) {
+        if (this.env > 0 && this.eco > 0 && this.soc > 0) {
             String prompt = card.getPrompt();
             this.prompt.setText(prompt);
             decisionCount++;
         } else {
-            this.prompt.setText("Game Over!");
+            this.isLoss = true;
+            this.prompt.setText("Game Over! Play again?");
         } //if
     } //run
 
@@ -101,6 +103,12 @@ public class Game {
         return this.prompt;
     } //getPrompt
 
+    public boolean getLoss() { return this.isLoss; } //isLoss
+
+    public void setLoss(boolean b) { this.isLoss = b; } //setLoss
+
+    public Card getCard() { return this.card; } //getCard
+
     //maybe try using a seed file to initialize all the cards
     //need scanner class
     //s will be the file name to be passed in
@@ -124,7 +132,7 @@ public class Game {
                 this.deck[i].setEnv(nums.nextInt());
                 this.deck[i].setEco(nums.nextInt());
                 this.deck[i].setSoc(nums.nextInt());
-                this.deck[i].setPo(nums.nextInt());
+                //this.deck[i].setPo(nums.nextInt());
             } // for
             promptCard.close();
         } catch (FileNotFoundException fnfe) {
