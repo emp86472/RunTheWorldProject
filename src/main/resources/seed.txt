@@ -1,37 +1,43 @@
-The Congress wants to raise wages.
-0 0 0 0
-There is a movement to ban the use of coal.
-0 0 0 0
-There is a movement to ban Lumber farming in a certain sector of land.
-0 0 0 0
-A neighboring country is being attacked by another, should we send assistance?
-0 0 0 0
-The world wants to move towards universal use of electric cars.
-0 0 0 0
-There is a public movement to stop tourism in a certain lake inside the country.
-0 0 0 0
-A foreign nation asks for funds to assist in environmental research.
-0 0 0 0
-A foreign nation asks for funds to assist in helping poor nations.
-0 0 0 0
-Many citizens ask for the development of new roads.
-0 0 0 0
-Many citizens ask for lower taxes.
-0 0 0 0
-Many citizens ask for more residential areas.
-0 0 0 0
-A new medicine is made at the cost of harvesting corals.
-0 0 0 0
-Churches are asking for donations.
-0 0 0 0
-College kids are asking for financial aid.
-0 0 0 0
-The government wants to limit fisheries to help protect different fish species in the ocean.
-0 0 0 0
-A forest land has been declared disposable, do we clear it?
-0 0 0 0
+There is a movement to increase minimum wage, should we support it?
+0 -15 10
+There is a movement to increase regulations on the use of coal, should we support it?
+15 -20 15
+There is a movement to increase regulation on the logging industry, should we support it?
+15 -15 10
+A neighboring country is being attacked, should we send assistance?
+0 -10 15
+The world is moving towards universal use of electric cars, should we follow?
+15 -20 5
+There is a movement to stop tourism to a certain lake inside the country due to pollution, should we support it?
+10 -15 -15
+A foreign nation asks for funds to assist in environmental research, do we give them a grant?
+15 -15 0
+A neighboring nation asks for financial assistance, do we provide aid?
+0 -10 15
+Many citizens are asking for the development highway infrastructure, should we?
+-20 -10 15
+There is a recent movement demanding the lowering of taxes, should we lower them?
+0 -15 15
+Citizens are asking for forests to be cleared for more room for housing, should we?
+-15 5 5
+A new medicine is made at the cost of harvesting recently discovered corals, should we regulate it?
+10 -10 -10
+A man has fallen into the river in lego city, should we save him?
+0 0 5
+College students are asking for student loan forgiveness, should we?
+0 -10 15
+Should we create fishing quotas to limit fishing to protect endangered species?
+15 -15 0
+A company wants to clear a forest for lumber, do we clear it?
+-10 15 -5
 An endangered animal is at risk of going extinct, do we protect them?
-0 0 0 0
-Nuclear power is discovered, should nuclear plants be built?
-0 0 0 0
+10 -10 10
+Companies want to implement nuclear power, should new nuclear plants be built?
+-5 20 -10
+Companies want to implement solar power by clearing out a grass plain, should new solar power plants be built?
+-5 15 10
+Companies want to implement hydro power at a river should new the hydro power plants be built?
+-5 10 0
+Oil was recently discovered near a forest, should we extract the oil?
+-15 15 0
 #
