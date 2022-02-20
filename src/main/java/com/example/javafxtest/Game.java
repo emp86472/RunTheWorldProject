@@ -2,7 +2,10 @@ package com.example.javafxtest;
 
 import javafx.scene.control.Label;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * Other things to work on:
@@ -24,8 +27,6 @@ public class Game {
     //lets say the cap is 100
     public Game() {
         prompt.setText("Click yes to play!");
-        this.card = new Card(0,0,0);
-        this.setDeck();
         this.env = 50;
         this.eco = 50;
         this.soc = 50;
@@ -90,15 +91,27 @@ public class Game {
     //maybe try using a seed file to initialize all the cards
     //need scanner class
     //s will be the file name to be passed in
-    public void setDeck() {
-        //something to work on!
-        //someone needs to create the seed file with all the cards
-        //seed file should be in some parsable format
-        //someone else can play ar with scanners to initialize all the cards using a forloop
-        Card card1 = new Card(10, 10, 10);
-        card1.setPrompt("example prompt 1");
-        Card card2 = new Card(-10,-10,-10);
-        card2.setPrompt("prompt example 2");
-        this.deck = new Card[]{card1, card2};
-    }
+    public void setDeck(String seedFile) {
+        File file = new File(seedFile);
+        try {
+            Scanner cardCount = new Scanner(file);
+            int cardNum = 0;
+            while (cardCount.hasNextLine()) {
+                cardNum++;
+            } // while
+            cardCount.close();
+            Scanner promptCard = new Scanner(file);
+            this.deck = new Card[cardNum];
+            for (int i = 0; i < cardNum; i++) {
+                this.deck[i].setPrompt(promptCard.nextLine());
+                this.deck[i].setEnv(promptCard.nextInt());
+                this.deck[i].setEco(promptCard.nextInt());
+                this.deck[i].setSoc(promptCard.nextInt());
+                this.deck[i].setPo(promptCard.nextInt());
+            } // for
+            promptCard.close();
+        } catch (FileNotFoundException fnfe) {
+
+        } //try
+    } // setDeck
 } //Game
