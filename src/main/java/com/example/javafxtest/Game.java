@@ -24,9 +24,8 @@ public class Game {
     private Card card;
     Random r = new Random();
 
-    //lets say the cap is 100
     public Game() {
-        prompt.setText("Click yes to play!");
+        prompt.setText("Welcome to Run The World! Click any button to play");
         this.setDeck("src/main/resources/seed.txt");
         this.card = new Card(0,0,0,0);
         card.setPrompt("");
@@ -36,8 +35,6 @@ public class Game {
         this.po = 50;
     } //Game constructor
 
-    //something to work on!
-    //currently PO does not affect the game
     //main game loop
     public void run(boolean decision) {
         int env = this.card.getEnv();
@@ -47,27 +44,25 @@ public class Game {
             this.env += env;
             this.eco += eco;
             this.soc += soc;
-            this.po += 10;
+            //this.po += 10;
         } else {
-            this.po -= 10;
+            //this.po -= 10;
         } //if
         this.env = max(this.env, 100);
         this.eco = max(this.eco, 100);
         this.soc = max(this.soc, 100);
-        this.po = max(this.po, 100);
+        //this.po = max(this.po, 100);
 
         this.env = min(this.env, 0);
         this.eco = min(this.eco, 0);
         this.soc = min(this.soc, 0);
-        this.po = min(this.po, 0);
+        //this.po = min(this.po, 0);
 
         this.card = this.deck[r.nextInt(deck.length)];
         if (this.env >= 0 && this.eco >= 0 && this.soc >= 0) {
             String prompt = card.getPrompt();
             this.prompt.setText(prompt);
             decisionCount++;
-            //we need different messages for each lose condition
-            //whichever happens first
         } else {
             this.prompt.setText("Game Over!");
         } //if
@@ -97,6 +92,7 @@ public class Game {
     public void setEco(int n) {
         this.eco = n;
     } //setEco
+
     public void setSoc(int n) {
         this.soc = n;
     } //setSoc
@@ -115,7 +111,6 @@ public class Game {
             int cardNum = 0;
             while (!cardCount.nextLine().equals("#")) {
                 cardNum++;
-                //System.out.println(cardNum);
             } // while
             cardNum /= 2;
             cardCount.close();
@@ -130,11 +125,10 @@ public class Game {
                 this.deck[i].setEco(nums.nextInt());
                 this.deck[i].setSoc(nums.nextInt());
                 this.deck[i].setPo(nums.nextInt());
-                System.out.println(i);
             } // for
             promptCard.close();
         } catch (FileNotFoundException fnfe) {
-
+            System.out.println("We ain't seein a file, chief");
         } //try
     } // setDeck
 

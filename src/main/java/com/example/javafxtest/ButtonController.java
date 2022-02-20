@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
 
 import java.io.File;
 import java.net.URL;
@@ -22,7 +23,8 @@ public class ButtonController implements Initializable {
     @FXML private ProgressBar eco;
     @FXML private ProgressBar env;
     @FXML private ProgressBar soc;
-    @FXML private ProgressBar po;
+    //@FXML private ProgressBar po;
+    @FXML private VBox box = new VBox();
 
     @FXML
     protected void onYesButtonClick(ActionEvent actionEvent) {
@@ -31,7 +33,7 @@ public class ButtonController implements Initializable {
         eco.setProgress((double)game.getEco()/100);
         env.setProgress((double)game.getEnv()/100);
         soc.setProgress((double)game.getSoc()/100);
-        po.setProgress((double)game.getPo()/100);
+        //po.setProgress((double)game.getPo()/100);
     } //onYesButtonClick
 
     @FXML
@@ -41,19 +43,26 @@ public class ButtonController implements Initializable {
         eco.setProgress((double)game.getEco()/100);
         env.setProgress((double)game.getEnv()/100);
         soc.setProgress((double)game.getSoc()/100);
-        po.setProgress((double)game.getPo()/100);
+        //po.setProgress((double)game.getPo()/100);
     } //onNoButtonClick
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         File file = new File("src/main/resources/pngs/citygif.gif");
+        File file2 = new File("src/main/resources/pngs/grey.png");
         Image image = new Image(file.toURI().toString());
+        Image image2 = new Image(file2.toURI().toString());
         iv.setImage(image);
+        this.box.setBackground(new Background(new BackgroundImage(image2,
+                BackgroundRepeat.REPEAT,
+                BackgroundRepeat.REPEAT,
+                BackgroundPosition.CENTER,
+                BackgroundSize.DEFAULT)));
         this.game = new Game();
         this.prompt.setText(game.getPrompt().getText());
         eco.setProgress((double)game.getEco()/100);
         env.setProgress((double)game.getEnv()/100);
         soc.setProgress((double)game.getSoc()/100);
-        po.setProgress((double)game.getPo()/100);
+        //po.setProgress((double)game.getPo()/100);
     } //initialize
 }

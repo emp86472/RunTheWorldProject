@@ -9,24 +9,22 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="525.0" prefWidth="570.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.example.javafxtest.ButtonController">
+<VBox fx:id="box" alignment="CENTER" prefHeight="525.0" prefWidth="570.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.example.javafxtest.ButtonController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <HBox alignment="CENTER" prefHeight="0.0" prefWidth="418.0" translateY="-20.0">
       <children>
-         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="80.0" text="ECONOMY" translateX="-45.0" />
-         <Label alignment="CENTER" prefHeight="15.0" prefWidth="80.0" text="ENVIRONMENT" translateX="-15.0" />
-         <Label alignment="CENTER" prefHeight="15.0" prefWidth="80.0" text="SOCIAL" translateX="15.0" />
-         <Label alignment="CENTER" prefHeight="15.0" prefWidth="80.0" text="OPINION" translateX="45.0" />
+         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="90.0" text="ECONOMY" translateX="-30.0" />
+         <Label alignment="CENTER" prefHeight="15.0" prefWidth="90.0" text="ENVIRONMENT" translateX="0" />
+         <Label alignment="CENTER" prefHeight="15.0" prefWidth="90.0" text="SOCIAL" translateX="30.0" />
       </children>
    </HBox>
    <HBox alignment="CENTER" prefHeight="24.0" prefWidth="530.0" translateY="-40.0">
       <children>
-         <ProgressBar fx:id="eco" prefHeight="15.0" prefWidth="80.0" progress="0.0" translateX="-45.0" />
-         <ProgressBar fx:id="env" prefHeight="15.0" prefWidth="80.0" progress="0.0" translateX="-15.0" />
-         <ProgressBar fx:id="soc" prefHeight="15.0" prefWidth="80.0" progress="0.0" translateX="15.0" />
-         <ProgressBar fx:id="po" prefHeight="15.0" prefWidth="80.0" progress="0.0" translateX="45.0" />
+         <ProgressBar fx:id="eco" prefHeight="15.0" prefWidth="90.0" progress="0.0" translateX="-30.0" />
+         <ProgressBar fx:id="env" prefHeight="15.0" prefWidth="90.0" progress="0.0" translateX="0.0" />
+         <ProgressBar fx:id="soc" prefHeight="15.0" prefWidth="90.0" progress="0.0" translateX="30.0" />
       </children>
    </HBox>
     <children>
