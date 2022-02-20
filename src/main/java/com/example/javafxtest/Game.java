@@ -18,11 +18,13 @@ public class Game {
     private static int decisionCount;
     private Card[] deck;
     private Label prompt = new Label();
+    private Card card;
     Random r = new Random();
 
     //lets say the cap is 100
     public Game() {
         prompt.setText("Click yes to play!");
+        this.card = new Card(0,0,0);
         this.setDeck();
         this.env = 50;
         this.eco = 50;
@@ -34,21 +36,21 @@ public class Game {
     //currently PO does not affect the game
     //main game loop
     public void run(boolean decision) {
-        Card card = this.deck[r.nextInt(deck.length)];
-        int env = card.getEnv();
-        int eco = card.getEco();
-        int soc = card.getSoc();
+        int env = this.card.getEnv();
+        int eco = this.card.getEco();
+        int soc = this.card.getSoc();
+        if (decision) {
+            this.env += env;
+            this.eco += eco;
+            this.soc += soc;
+            this.po += 10;
+        } else {
+            this.po -= 10;
+        } //if
+        this.card = this.deck[r.nextInt(deck.length)];
         if (this.env >= 0 && this.eco >= 0 && this.soc >= 0) {
             String prompt = card.getPrompt();
             this.prompt.setText(prompt);
-            if (decision) {
-                this.env += env;
-                this.eco += eco;
-                this.soc += soc;
-                this.po += 10;
-            } else {
-                this.po -= 10;
-            } //if
             decisionCount++;
             //we need different messages for each lose condition
             //whichever happens first
@@ -87,21 +89,16 @@ public class Game {
 
     //maybe try using a seed file to initialize all the cards
     //need scanner class
-    public void setDeck(String seedFile) {
-        File file = new file(seedFile); // seed file given in param
-        Scanner promptNum = new scanner(file);
-        numCards = 0; // records num of cards
-        while (promptNum.hasNextLine()) { // reads the amount of cards
-            number of cards += 1;
-        } // while
-        promptNum.close();
-        this.deck = new Card[numCards];
-        Scanner promptReader = new Scanner(file);
-        for (int i = 0; i < numCards; i++) {
-            this.deck[i].setprompt(promptReader.nextline());
-            this.deck[i].setEnv(promptReader.nextInt());
-            this.deck[i].setEco(promptReader.nextInt());
-            this.deck[i].setSoc(promptReader.nextInt());
-        } // for
-    } // setDeck
+    //s will be the file name to be passed in
+    public void setDeck() {
+        //something to work on!
+        //someone needs to create the seed file with all the cards
+        //seed file should be in some parsable format
+        //someone else can play ar with scanners to initialize all the cards using a forloop
+        Card card1 = new Card(10, 10, 10);
+        card1.setPrompt("example prompt 1");
+        Card card2 = new Card(-10,-10,-10);
+        card2.setPrompt("prompt example 2");
+        this.deck = new Card[]{card1, card2};
+    }
 } //Game

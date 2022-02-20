@@ -4,18 +4,18 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,19 +24,23 @@ public class HelloApplication extends Application {
 
     private Label prompt;
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws IOException {
 
-        //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
 
         Game game = new Game();
-        VBox root = new VBox();
+        BorderPane root = new BorderPane();
+
+        ProgressBar eco = new ProgressBar();
+        ProgressBar env = new ProgressBar();
+        ProgressBar soc = new ProgressBar();
+        eco.setRotate(90);
+        env.setRotate(90);
+        soc.setRotate(90);
+        HBox bars = new HBox(eco, env, soc);
 
         Label prompt = game.getPrompt();
-        //something to work on!
-        //image should change with the changing environment
-        //we need some artists..
-        Image image = new Image("file:src/main/resources/pngs/city_scape.png");
+        Image image = new Image("file:src/main/resources/pngs/citygif.gif");
         ImageView imageHolder = new ImageView(image);
         //imageHolder.setFitWidth(500);
         imageHolder.setPreserveRatio(true);
@@ -46,12 +50,21 @@ public class HelloApplication extends Application {
         //something to work on! (i can probably do this)
         //buttons not centered..
         HBox decision = new HBox();
+        //decision.setAlignment(Pos.CENTER);
+        decision.setFillHeight(true);
+        decision.setAlignment(Pos.BOTTOM_CENTER);
         Button yes = new Button("Yes");
+        //Region.positionInArea(yes,20,40,200,400,10,Insets.EMPTY,HPos.LEFT,VPos.CENTER,false);
         Button no = new Button("No");
+        //Region.positionInArea(no,20,40,200,400,10,Insets.EMPTY,HPos.RIGHT,VPos.CENTER,false);
+        HBox.setHgrow(yes, Priority.ALWAYS);
+        HBox.setHgrow(no, Priority.ALWAYS);
+        yes.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        no.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 
         //env eco soc bars need to be added
         EventHandler<ActionEvent> ae1 = T -> {
-           game.run(true);
+            game.run(true);
         };
         yes.setOnAction(ae1);
         EventHandler<ActionEvent> ae2 = T -> {
@@ -60,8 +73,10 @@ public class HelloApplication extends Application {
         no.setOnAction(ae2);
 
         decision.getChildren().addAll(yes, no);
-        root.getChildren().addAll(imageBox, decision);
-        Scene scene = new Scene(root, 800, 640);
+        root.setBottom(decision);
+        root.setCenter(imageBox);
+        root.setRight(bars);
+        Scene scene = new Scene(fxmlLoader.load(), 800, 640);
 
         stage.setTitle("UGA-Hacks7");
         stage.setScene(scene);
