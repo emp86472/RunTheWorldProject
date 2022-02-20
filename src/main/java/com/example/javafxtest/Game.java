@@ -77,6 +77,7 @@ public class Game {
     public void setEco(int n) {
         this.eco = n;
     } //setEco
+
     public void setSoc(int n) {
         this.soc = n;
     } //setSoc
