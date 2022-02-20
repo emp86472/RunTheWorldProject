@@ -41,12 +41,12 @@ public class Game {
         int eco = this.card.getEco();
         int soc = this.card.getSoc();
         if (decision) {
-            this.env += env;
+            this.env += env - 5;
             this.eco += eco;
             this.soc += soc;
             //this.po += 10;
         } else {
-            //this.po -= 10;
+            this.env -= 5;
         } //if
         this.env = max(this.env, 100);
         this.eco = max(this.eco, 100);
