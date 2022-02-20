@@ -87,15 +87,21 @@ public class Game {
 
     //maybe try using a seed file to initialize all the cards
     //need scanner class
-    public void setDeck() {
-        //something to work on!
-        //someone needs to create the seed file with all the cards
-        //seed file should be in some parsable format
-        //someone else can play ar with scanners to initialize all the cards using a forloop
-        Card card1 = new Card(10, 10, 10);
-        card1.setPrompt("example prompt 1");
-        Card card2 = new Card(-10,-10,-10);
-        card2.setPrompt("prompt example 2");
-        this.deck = new Card[]{card1, card2};
-    }
+    public void setDeck(String seedFile) {
+        File file = new file(seedFile); // seed file given in param
+        Scanner promptNum = new scanner(file);
+        numCards = 0; // records num of cards
+        while (promptNum.hasNextLine()) { // reads the amount of cards
+            number of cards += 1;
+        } // while
+        promptNum.close();
+        this.deck = new Card[numCards];
+        Scanner promptReader = new Scanner(file);
+        for (int i = 0; i < numCards; i++) {
+            this.deck[i].setprompt(promptReader.nextline());
+            this.deck[i].setEnv(promptReader.nextInt());
+            this.deck[i].setEco(promptReader.nextInt());
+            this.deck[i].setSoc(promptReader.nextInt());
+        } // for
+    } // setDeck
 } //Game
