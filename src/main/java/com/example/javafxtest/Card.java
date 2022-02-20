@@ -6,6 +6,17 @@ public class Card {
 
     private int env, eco, soc, po;
 
+    public Card() {
+
+    }//
+
+    public Card(int a, int b, int c ,int d) {
+        this.env = a;
+        this.eco = b;
+        this.soc = c;
+        this.po = d;
+    } //constructor
+
     public String getPrompt() {
         return this.prompt;
     } //getPrompt
@@ -34,5 +45,5 @@ public class Card {
         return this.soc;
     } //getSoc
 
-    public int getOp() { return this.op; } //getOp
+    public int getOp() { return this.po; } //getOp
 } //Card

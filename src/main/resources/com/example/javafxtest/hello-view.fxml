@@ -23,10 +23,10 @@
    </HBox>
    <HBox alignment="CENTER" prefHeight="24.0" prefWidth="530.0" translateY="-40.0">
       <children>
-         <ProgressBar prefHeight="15.0" prefWidth="80.0" progress="0.0" translateX="-45.0" />
-         <ProgressBar prefHeight="15.0" prefWidth="80.0" progress="0.0" translateX="-15.0" />
-         <ProgressBar prefHeight="15.0" prefWidth="80.0" progress="0.0" translateX="15.0" />
-         <ProgressBar prefHeight="15.0" prefWidth="80.0" progress="0.0" translateX="45.0" />
+         <ProgressBar fx:id="eco" prefHeight="15.0" prefWidth="80.0" progress="0.0" translateX="-45.0" />
+         <ProgressBar fx:id="env" prefHeight="15.0" prefWidth="80.0" progress="0.0" translateX="-15.0" />
+         <ProgressBar fx:id="soc" prefHeight="15.0" prefWidth="80.0" progress="0.0" translateX="15.0" />
+         <ProgressBar fx:id="po" prefHeight="15.0" prefWidth="80.0" progress="0.0" translateX="45.0" />
       </children>
    </HBox>
     <children>

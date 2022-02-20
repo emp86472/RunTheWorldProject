@@ -76,7 +76,7 @@ public class HelloApplication extends Application {
         root.setBottom(decision);
         root.setCenter(imageBox);
         root.setRight(bars);
-        Scene scene = new Scene(fxmlLoader.load(), 800, 640);
+        Scene scene = new Scene(fxmlLoader.load(), 600, 480);
 
         stage.setTitle("UGA-Hacks7");
         stage.setScene(scene);

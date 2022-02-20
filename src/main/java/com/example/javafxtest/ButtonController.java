@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -18,17 +19,29 @@ public class ButtonController implements Initializable {
     private ImageView iv = new ImageView();
     //private Image image = new Image("file:src/main/resources/pngs/citygif.gif");
     @FXML private Label prompt;
+    @FXML private ProgressBar eco;
+    @FXML private ProgressBar env;
+    @FXML private ProgressBar soc;
+    @FXML private ProgressBar po;
 
     @FXML
     protected void onYesButtonClick(ActionEvent actionEvent) {
         game.run(true);
         this.prompt.setText(game.getPrompt().getText());
+        eco.setProgress((double)game.getEco()/100);
+        env.setProgress((double)game.getEnv()/100);
+        soc.setProgress((double)game.getSoc()/100);
+        po.setProgress((double)game.getPo()/100);
     } //onYesButtonClick
 
     @FXML
     protected void onNoButtonClick(ActionEvent actionEvent) {
         game.run(false);
         this.prompt.setText(game.getPrompt().getText());
+        eco.setProgress((double)game.getEco()/100);
+        env.setProgress((double)game.getEnv()/100);
+        soc.setProgress((double)game.getSoc()/100);
+        po.setProgress((double)game.getPo()/100);
     } //onNoButtonClick
 
     @Override
@@ -38,5 +51,9 @@ public class ButtonController implements Initializable {
         iv.setImage(image);
         this.game = new Game();
         this.prompt.setText(game.getPrompt().getText());
+        eco.setProgress((double)game.getEco()/100);
+        env.setProgress((double)game.getEnv()/100);
+        soc.setProgress((double)game.getSoc()/100);
+        po.setProgress((double)game.getPo()/100);
     } //initialize
 }

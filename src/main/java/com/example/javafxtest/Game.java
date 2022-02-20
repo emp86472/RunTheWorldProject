@@ -27,6 +27,9 @@ public class Game {
     //lets say the cap is 100
     public Game() {
         prompt.setText("Click yes to play!");
+        this.setDeck("src/main/resources/seed.txt");
+        this.card = new Card(0,0,0,0);
+        card.setPrompt("");
         this.env = 50;
         this.eco = 50;
         this.soc = 50;
@@ -48,6 +51,16 @@ public class Game {
         } else {
             this.po -= 10;
         } //if
+        this.env = max(this.env, 100);
+        this.eco = max(this.eco, 100);
+        this.soc = max(this.soc, 100);
+        this.po = max(this.po, 100);
+
+        this.env = min(this.env, 0);
+        this.eco = min(this.eco, 0);
+        this.soc = min(this.soc, 0);
+        this.po = min(this.po, 0);
+
         this.card = this.deck[r.nextInt(deck.length)];
         if (this.env >= 0 && this.eco >= 0 && this.soc >= 0) {
             String prompt = card.getPrompt();
@@ -73,6 +86,10 @@ public class Game {
         return this.soc;
     } //getSoc
 
+    public int getPo() {
+        return this.po;
+    } //getPo
+
     public void setEnv(int n) {
         this.env = n;
     } //setEnv
@@ -96,22 +113,42 @@ public class Game {
         try {
             Scanner cardCount = new Scanner(file);
             int cardNum = 0;
-            while (cardCount.hasNextLine()) {
+            while (!cardCount.nextLine().equals("#")) {
                 cardNum++;
+                //System.out.println(cardNum);
             } // while
+            cardNum /= 2;
             cardCount.close();
             Scanner promptCard = new Scanner(file);
             this.deck = new Card[cardNum];
             for (int i = 0; i < cardNum; i++) {
+                this.deck[i] = new Card();
                 this.deck[i].setPrompt(promptCard.nextLine());
-                this.deck[i].setEnv(promptCard.nextInt());
-                this.deck[i].setEco(promptCard.nextInt());
-                this.deck[i].setSoc(promptCard.nextInt());
-                this.deck[i].setPo(promptCard.nextInt());
+                String s = promptCard.nextLine();
+                Scanner nums = new Scanner(s);
+                this.deck[i].setEnv(nums.nextInt());
+                this.deck[i].setEco(nums.nextInt());
+                this.deck[i].setSoc(nums.nextInt());
+                this.deck[i].setPo(nums.nextInt());
+                System.out.println(i);
             } // for
             promptCard.close();
         } catch (FileNotFoundException fnfe) {
 
         } //try
     } // setDeck
+
+    public static int max(int a, int b) {
+        if (a >= b) {
+            a = b;
+        } //if
+        return a;
+    } //max
+
+    public static int min(int a, int b) {
+        if (a <= b) {
+            a = b;
+        } //if
+        return a;
+    } //max
 } //Game
