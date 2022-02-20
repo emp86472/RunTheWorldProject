@@ -3,13 +3,8 @@ package com.example.javafxtest;
 public class Card {
 
     String prompt;
-    private int env, eco, soc;
 
-    public Card(int x, int y, int z) {
-        this.env = x;
-        this.eco = y;
-        this.soc = z;
-    } //Card
+    private int env, eco, soc, po;
 
     public String getPrompt() {
         return this.prompt;
@@ -18,6 +13,14 @@ public class Card {
     public void setPrompt(String s) {
         this.prompt = s;
     } // setPrompt
+
+    public void setEnv(int a) { this.env = a; }
+
+    public void setEco(int b) { this.eco = b; }
+
+    public void setSoc(int c) { this.soc = c; }
+
+    public void setPo(int d) { this.po = d; }
 
     public int getEnv() {
         return this.env;
@@ -30,4 +33,6 @@ public class Card {
     public int getSoc() {
         return this.soc;
     } //getSoc
+
+    public int getOp() { return this.op; } //getOp
 } //Card

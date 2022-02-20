@@ -45,9 +45,9 @@ public class Game {
                 this.env += env;
                 this.eco += eco;
                 this.soc += soc;
-                this.po += 10;
+                this.po += po;
             } else {
-                this.po -= 10;
+                //stuff
             } //if
             decisionCount++;
             //we need different messages for each lose condition
@@ -103,6 +103,7 @@ public class Game {
             this.deck[i].setEnv(promptReader.nextInt());
             this.deck[i].setEco(promptReader.nextInt());
             this.deck[i].setSoc(promptReader.nextInt());
+            this.deck[i].setPo(promptReader.nextInt());
         } // for
     } // setDeck
 } //Game
