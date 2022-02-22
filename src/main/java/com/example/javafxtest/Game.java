@@ -14,6 +14,7 @@ import java.util.Scanner;
  *
  * MAYBE we could have sound fx, doesnt look too hard..
  *
+ * New Cards! Cards with more flavor
  */
 public class Game {
     private int env, eco, soc, po;
@@ -47,7 +48,9 @@ public class Game {
             this.soc += soc;
             //this.po += 10;
         } else {
-            this.env -= 5;
+            this.env -= env;
+            this.eco -= eco;
+            this.soc -= soc;
         } //if
         this.env = max(this.env, 100);
         this.eco = max(this.eco, 100);
